@@ -122,18 +122,19 @@ let categories = [
 ]
 
 for (let item of categories) {
-    item.course = item.course.trim()
-    item.course = item.course[0].toUpperCase() + item.course.substring(1).toLowerCase()
-    
-    for(let item_1 of arr) {
-        if(item_1.info.faculity == item.course) {
+    for (let item_1 of arr) {
+
+        item.course = item.course.trim()
+        item.course = item.course.toLowerCase()
+
+        item_1.info.faculity = item_1.info.faculity.trim()
+        item_1.info.faculity = item_1.info.faculity.toLowerCase()
+
+        if (item_1.info.faculity === item.course) {
             item.count++
         }
     }
-
 }
-
-
 
 console.log(arr);
 console.log(categories);
